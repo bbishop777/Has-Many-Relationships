@@ -30,3 +30,8 @@ SELECT users.username, posts.created_at
 FROM users
 INNER JOIN posts on posts.user_id= users.id
 WHERE posts.created_at> '2015_01-01';
+
+SELECT posts.title, posts.content, users.username, users.created_at
+FROM posts
+INNER JOIN users on posts.user_id= users.id
+WHERE users.created_at< '2015_01_01';
