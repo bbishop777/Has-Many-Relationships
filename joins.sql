@@ -39,3 +39,8 @@ WHERE users.created_at< '2015_01_01';
 SELECT comments.*, posts.title AS "Post Title"
 FROM comments
 INNER JOIN posts on comments.post_id= posts.id;
+
+SELECT comments.*, posts.title AS "post_title", posts.url AS "post_url", comments.body AS "comment_body"
+FROM comments
+INNER JOIN posts on comments.post_id= posts.id
+WHERE posts.created_at < '2015-1-1';
