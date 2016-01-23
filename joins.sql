@@ -23,24 +23,35 @@ WHERE users.id= 200;
 
 SELECT posts.*, users.username
 FROM posts
-INNER JOIN users on posts.user_id = users.id
+INNER JOIN users ON posts.user_id = users.id
 WHERE users.first_name= 'Norene' AND users.last_name= 'Schmitt';
 
 SELECT users.username, posts.created_at
 FROM users
-INNER JOIN posts on posts.user_id= users.id
+INNER JOIN posts ON posts.user_id= users.id
 WHERE posts.created_at> '2015_01-01';
 
 SELECT posts.title, posts.content, users.username, users.created_at
 FROM posts
-INNER JOIN users on posts.user_id= users.id
+INNER JOIN users ON posts.user_id= users.id
 WHERE users.created_at< '2015_01_01';
 
 SELECT comments.*, posts.title AS "Post Title"
 FROM comments
-INNER JOIN posts on comments.post_id= posts.id;
+INNER JOIN posts ON comments.post_id= posts.id;
 
 SELECT comments.*, posts.title AS "post_title", posts.url AS "post_url", comments.body AS "comment_body"
 FROM comments
-INNER JOIN posts on comments.post_id= posts.id
+INNER JOIN posts ON comments.post_id= posts.id
 WHERE posts.created_at < '2015-1-1';
+
+SELECT comments.*, posts.title AS "post_title", posts.url AS "post_url", comments.body AS "comment_body"
+FROM comments
+INNER JOIN posts ON comments.post_id= posts.id
+WHERE posts.created_at > '2015-1-1';
+
+SELECT comments.*, posts.title AS "post_title", posts.url AS "post_url", comments.body AS "comment_body"
+FROM comments
+INNER JOIN posts ON comments.post_id= posts.id
+WHERE comments.body LIKE '%USB%';
+
