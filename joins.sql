@@ -67,3 +67,14 @@ INNER JOIN users ON posts.user_id= users.id
 INNER JOIN comments ON comments.post_id= posts.id
 WHERE comments.body LIKE '%matrix%';
 
+SELECT users.first_name, users.last_name, comments.body AS comment_body
+FROM users
+INNER JOIN comments ON comments.user_id= users.id
+INNER JOIN posts ON comments.post_id= posts.id
+WHERE comments.body LIKE '%SSL%' AND posts.content LIKE '%dolorum%';
+
+SELECT count(users.id)
+FROM users
+INNER JOIN comments ON comments.user_id= users.id
+INNER JOIN posts ON comments.post_id= posts.id
+WHERE comments.body LIKE '%SSL%' AND posts.content LIKE '%dolorum%';
